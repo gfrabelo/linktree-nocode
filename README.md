@@ -2,8 +2,6 @@
 
 A modern, dark-themed landing page serving as a professional link hub. Features a futuristic design with animated backgrounds, interactive elements, and a responsive layout.
 
-![Preview](https://i.imgur.com/YOUR_PREVIEW_IMAGE.jpg)
-
 ## 🚀 Technologies
 
 This project is built with modern web technologies:
