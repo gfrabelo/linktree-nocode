@@ -28,7 +28,7 @@ export function Footer() {
           );
         })}
       </div>
-      <p>Designed by Gabriel Rabelo | © 2024</p>
+      <p>Designed by Gabriel Rabelo | © 2025</p>
     </footer>
   );
 }
