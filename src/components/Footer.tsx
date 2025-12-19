@@ -10,8 +10,8 @@ export function Footer() {
   ];
 
   return (
-    <footer className="mt-auto py-6 text-center text-sm text-blue-200/60">
-      <div className="mb-4 flex justify-center gap-4">
+    <footer className="mt-auto py-6 text-center text-sm text-blue-200/60 relative z-10">
+      <div className="mb-4 flex justify-center gap-4 relative z-10">
         {socials.map((social, index) => {
           const Icon = social.icon;
           return (
@@ -20,7 +20,7 @@ export function Footer() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-purple-400 hover:scale-110 transform duration-200"
+              className="transition-colors hover:text-purple-400 hover:scale-110 transform duration-200 relative z-10"
               aria-label={social.label}
             >
               <Icon className="h-5 w-5" />
@@ -28,8 +28,8 @@ export function Footer() {
           );
         })}
       </div>
-      <p className="text-blue-200/50">
-        Construa seu império digital | © 2025 Gabriel Rabelo
+      <p className="text-blue-200/50 relative z-10">
+        Compartilhando conhecimento | © 2025 Gabriel Rabelo
       </p>
     </footer>
   );

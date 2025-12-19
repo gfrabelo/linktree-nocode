@@ -15,7 +15,7 @@ export function SocialButton({ href, icon: Icon, label, description, highlight =
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative flex flex-col gap-1 rounded-xl px-5 py-4 text-white transition-all duration-300 ${
+      className={`group relative flex flex-col gap-1 rounded-xl px-5 py-4 text-white transition-all duration-300 z-10 ${
         highlight 
           ? 'bg-gradient-to-r from-blue-950/50 via-purple-950/50 to-blue-950/50 hover:from-blue-900/60 hover:via-purple-900/60 hover:to-blue-900/60 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(147,51,234,0.4),0_0_20px_rgba(59,130,246,0.3)]' 
           : 'bg-blue-950/30 hover:bg-blue-900/40 hover:scale-105 hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]'

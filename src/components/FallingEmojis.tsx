@@ -45,7 +45,7 @@ export function FallingEmojis() {
 
   return (
     <>
-      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-0">
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" style={{ zIndex: 0 }}>
         {fallingEmojis.map((emoji) => (
           <div
             key={emoji.id}
@@ -55,6 +55,7 @@ export function FallingEmojis() {
               fontSize: `${emoji.size}px`,
               animationDuration: `${emoji.duration}s`,
               animationDelay: `${emoji.delay}s`,
+              zIndex: 0,
             }}
           >
             {emoji.emoji}
