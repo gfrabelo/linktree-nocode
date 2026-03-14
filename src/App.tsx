@@ -9,7 +9,7 @@ import {
   Mail,
   Briefcase,
 } from 'lucide-react';
-import profileImage from './assets/images/profile.jpg';
+import heroImage from './assets/images/hero-final.webp';
 
 const links = [
   {
@@ -36,7 +36,7 @@ const links = [
   {
     icon: Briefcase,
     label: 'Portfólio — Projetos e Cases',
-    description: 'Veja meu trabalho completo em gfrabelo.github.io',
+    description: 'Veja meu trabalho completo em gabrielrabelo.dev',
     href: 'https://www.gabrielrabelo.dev',
     accent: 'success' as const,
   },
@@ -51,48 +51,40 @@ const links = [
 
 function Avatar() {
   return (
-    <div className="animate-float-avatar relative mx-auto mb-8" style={{ width: 140, height: 140 }}>
-      {/* Outer pulse ring */}
+    <div
+      className="animate-float-avatar relative mx-auto mb-6"
+      style={{ width: 168, height: 168 }}
+    >
+      {/* Glow aura */}
       <div
-        className="animate-pulse-glow absolute rounded-full"
+        className="absolute rounded-full pointer-events-none"
         style={{
-          inset: -12,
-          border: '1px solid rgba(99,102,241,0.3)',
-          borderRadius: '9999px',
+          inset: 8,
+          background: 'radial-gradient(circle, rgba(99,102,241,0.3) 0%, rgba(139,92,246,0.15) 50%, transparent 75%)',
+          filter: 'blur(20px)',
+          animation: 'glow-breathe 4s ease-in-out infinite',
         }}
       />
 
-      {/* Spinning gradient border */}
+      {/* Anel externo estático */}
       <div
-        className="animate-spin-slow absolute rounded-full"
+        className="absolute rounded-full pointer-events-none"
         style={{
-          inset: -4,
-          background: 'linear-gradient(45deg, #6366F1, #06B6D4, #8B5CF6, #6366F1)',
-          borderRadius: '9999px',
-          filter: 'blur(8px)',
+          inset: -10,
+          border: '1px solid rgba(99,102,241,0.2)',
         }}
       />
 
-      {/* Solid ring behind photo */}
-      <div
-        className="absolute rounded-full"
-        style={{
-          inset: -2,
-          background: 'linear-gradient(45deg, #6366F1, #06B6D4, #8B5CF6)',
-          borderRadius: '9999px',
-        }}
-      />
-
-      {/* Photo */}
       <img
-        src={profileImage}
+        src={heroImage}
         alt="Gabriel Rabelo"
-        className="relative rounded-full object-cover"
+        loading="lazy"
         style={{
-          width: 140,
-          height: 140,
-          boxShadow: '0 20px 60px rgba(99,102,241,0.3)',
-          border: '3px solid #020410',
+          width: 168,
+          height: 168,
+          objectFit: 'contain',
+          position: 'relative',
+          filter: 'drop-shadow(0 0 24px rgba(99,102,241,0.45)) drop-shadow(0 8px 32px rgba(139,92,246,0.25))',
         }}
       />
     </div>
@@ -156,7 +148,7 @@ function App() {
                   className="inline-block h-1.5 w-1.5 rounded-full animate-pulse-glow"
                   style={{ background: '#10B981' }}
                 />
-                Dev Sênior · Builder Público
+                Dev Sênior · AI Engineer
               </span>
             </div>
           </div>

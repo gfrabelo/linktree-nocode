@@ -212,6 +212,13 @@
   will-change: transform, opacity;
 }
 
+/* ─── Avatar glow breathe (opacity only — sem flicker) ─── */
+
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
 /* ─── Staggered entrance delays ─────────────────────────── */
 
 .delay-100  { animation-delay: 100ms; }

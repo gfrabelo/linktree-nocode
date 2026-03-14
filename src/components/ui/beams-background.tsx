@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
 
 interface Beam {
   x: number;
@@ -126,15 +125,10 @@ export function BeamsBackground() {
         style={{ filter: 'blur(12px)', willChange: 'transform' }}
       />
 
-      {/* Soft pulsing vignette overlay */}
-      <motion.div
+      {/* Static dark vignette — sem animação de opacity para evitar flicker */}
+      <div
         className="absolute inset-0"
-        animate={{ opacity: [0.05, 0.18, 0.05] }}
-        transition={{ duration: 10, ease: 'easeInOut', repeat: Infinity }}
-        style={{
-          backdropFilter: 'blur(40px)',
-          background: 'rgba(2,4,16,0.05)',
-        }}
+        style={{ background: 'rgba(2,4,16,0.08)' }}
       />
     </>
   );
