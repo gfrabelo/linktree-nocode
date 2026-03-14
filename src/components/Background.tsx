@@ -1,38 +1,69 @@
 import React from 'react';
+import { BeamsBackground } from './ui/beams-background';
 
 export function Background() {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden">
-      {/* Main background with deeper, richer colors */}
-      <div className="absolute inset-0 bg-[#0a0a1a]">
-        {/* Animated gradient overlay with purple accents */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/25 via-purple-600/20 via-blue-900/15 to-transparent animate-gradient" />
-        
-        {/* Multiple glowing orb effects for depth */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_50%_-100px,#0051ff40,transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_600px_at_80%_80%,#9333ea30,transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_20%_50%,#3b82f630,transparent)]" />
-        
-        {/* Enhanced futuristic grid */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#3b82f610_1px,transparent_1px),linear-gradient(to_bottom,#3b82f610_1px,transparent_1px)] bg-[size:24px_24px] animate-[gridMove_20s_linear_infinite]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#9333ea15_1px,transparent_1px),linear-gradient(to_bottom,#9333ea15_1px,transparent_1px)] bg-[size:96px_96px]" />
-        </div>
-        
-        {/* Enhanced glowing lines with animation */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/60 via-purple-500/40 to-transparent animate-pulse" />
-          <div className="absolute top-2/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-purple-500/40 via-blue-500/30 to-transparent" />
-          <div className="absolute top-3/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
-        </div>
-        
-        {/* Floating particles effect */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-blue-400 rounded-full animate-pulse [animation-delay:0s]" />
-          <div className="absolute top-2/3 left-3/4 w-1 h-1 bg-purple-400 rounded-full animate-pulse [animation-delay:1s]" />
-          <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-blue-300 rounded-full animate-pulse [animation-delay:2s]" />
-        </div>
-      </div>
+    <div
+      className="fixed inset-0 overflow-hidden pointer-events-none"
+      style={{ zIndex: -10, backgroundColor: '#020410' }}
+    >
+      {/* ── Layer 1: Beams (canvas + framer overlay) ────────────── */}
+      <BeamsBackground />
+
+      {/* ── Layer 2: Radial centre glow ─────────────────────────── */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse at 50% 25%, rgba(99,102,241,0.10), transparent 68%)',
+        }}
+      />
+
+      {/* ── Layer 3: Animated blobs ──────────────────────────────── */}
+      <div
+        className="animate-blob absolute rounded-full"
+        style={{
+          width: 560,
+          height: 560,
+          top: '-12%',
+          left: '-8%',
+          background: 'rgba(99,102,241,0.14)',
+          filter: 'blur(110px)',
+          animationDelay: '0s',
+        }}
+      />
+      <div
+        className="animate-blob absolute rounded-full"
+        style={{
+          width: 480,
+          height: 480,
+          bottom: '4%',
+          right: '-6%',
+          background: 'rgba(139,92,246,0.13)',
+          filter: 'blur(100px)',
+          animationDelay: '8s',
+        }}
+      />
+      <div
+        className="animate-blob absolute rounded-full"
+        style={{
+          width: 360,
+          height: 360,
+          top: '48%',
+          left: '42%',
+          background: 'rgba(6,182,212,0.08)',
+          filter: 'blur(90px)',
+          animationDelay: '16s',
+        }}
+      />
+
+      {/* ── Layer 4: Bottom fade so content doesn't clash ──────── */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-48"
+        style={{
+          background: 'linear-gradient(to top, #020410, transparent)',
+        }}
+      />
     </div>
   );
 }

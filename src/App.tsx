@@ -1,103 +1,179 @@
 import React from 'react';
 import { Background } from './components/Background';
-import { FallingEmojis } from './components/FallingEmojis';
 import { SocialButton } from './components/SocialButton';
 import { Footer } from './components/Footer';
 import {
   Youtube,
-  Zap,
-  Rocket,
-  TrendingUp,
-  Linkedin,
   Instagram,
+  Linkedin,
   Mail,
+  Briefcase,
 } from 'lucide-react';
 import profileImage from './assets/images/profile.jpg';
 
-function App() {
-  const links = [
-    {
-      icon: Youtube,
-      label: 'YouTube - Conteúdo sobre IA e Tecnologia',
-      description: 'Acompanhe minha jornada e aprenda comigo',
-      href: 'https://youtube.com/@GabrielRabeloIA',
-      highlight: true,
-    },
-    {
-      icon: Zap,
-      label: 'Zenflow - Controle Financeiro pelo WhatsApp',
-      description: 'Ferramenta que uso para organizar minhas finanças',
-      href: 'http://demo.zenflow.pro/',
-      highlight: true,
-    },
-    {
-      icon: Instagram,
-      label: 'Instagram',
-      description: 'Acompanhe meu dia a dia e dicas de IA',
-      href: 'https://instagram.com/gabrielrabelob',
-      highlight: false,
-    },
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      description: 'Conecte-se e construa sua rede profissional',
-      href: 'https://www.linkedin.com/in/gabrielrabelob/',
-      highlight: false,
-    },
-    {
-      icon: Mail,
-      label: 'Email',
-      description: 'Entre em contato para parcerias',
-      href: 'mailto:gabrielrabelob@gmail.com',
-      highlight: false,
-    },
-  ];
+const links = [
+  {
+    icon: Youtube,
+    label: 'YouTube — Conteúdo sobre IA e Tecnologia',
+    description: 'Acompanhe minha jornada e aprenda comigo',
+    href: 'https://youtube.com/@GabrielRabeloIA',
+    accent: 'primary' as const,
+  },
+  {
+    icon: Instagram,
+    label: 'Instagram',
+    description: 'Acompanhe meu dia a dia e dicas de IA',
+    href: 'https://instagram.com/gabrielrabelob',
+    accent: 'secondary' as const,
+  },
+  {
+    icon: Linkedin,
+    label: 'LinkedIn',
+    description: 'Conecte-se e construa sua rede profissional',
+    href: 'https://www.linkedin.com/in/gabrielrabelob/',
+    accent: 'primary' as const,
+  },
+  {
+    icon: Briefcase,
+    label: 'Portfólio — Projetos e Cases',
+    description: 'Veja meu trabalho completo em gfrabelo.github.io',
+    href: 'https://www.gabrielrabelo.dev',
+    accent: 'success' as const,
+  },
+  {
+    icon: Mail,
+    label: 'Email — Entre em contato',
+    description: 'Parcerias e colaborações',
+    href: 'mailto:gabrielrabelob@gmail.com',
+    accent: 'secondary' as const,
+  },
+];
 
+function Avatar() {
+  return (
+    <div className="animate-float-avatar relative mx-auto mb-8" style={{ width: 140, height: 140 }}>
+      {/* Outer pulse ring */}
+      <div
+        className="animate-pulse-glow absolute rounded-full"
+        style={{
+          inset: -12,
+          border: '1px solid rgba(99,102,241,0.3)',
+          borderRadius: '9999px',
+        }}
+      />
+
+      {/* Spinning gradient border */}
+      <div
+        className="animate-spin-slow absolute rounded-full"
+        style={{
+          inset: -4,
+          background: 'linear-gradient(45deg, #6366F1, #06B6D4, #8B5CF6, #6366F1)',
+          borderRadius: '9999px',
+          filter: 'blur(8px)',
+        }}
+      />
+
+      {/* Solid ring behind photo */}
+      <div
+        className="absolute rounded-full"
+        style={{
+          inset: -2,
+          background: 'linear-gradient(45deg, #6366F1, #06B6D4, #8B5CF6)',
+          borderRadius: '9999px',
+        }}
+      />
+
+      {/* Photo */}
+      <img
+        src={profileImage}
+        alt="Gabriel Rabelo"
+        className="relative rounded-full object-cover"
+        style={{
+          width: 140,
+          height: 140,
+          boxShadow: '0 20px 60px rgba(99,102,241,0.3)',
+          border: '3px solid #020410',
+        }}
+      />
+    </div>
+  );
+}
+
+function App() {
   return (
     <>
       <Background />
-      <FallingEmojis />
-      <div className="relative min-h-screen flex flex-col items-center px-4 py-16 text-white z-10">
-        <main className="w-full max-w-md mx-auto relative z-10">
-          <div className="text-center mb-10 relative z-10">
-            <div className="relative w-36 h-36 mx-auto mb-6 group z-10">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-blue-700 animate-pulse [animation-duration:3s] z-[5]" style={{ transform: 'scale(1.1)' }} />
-              <img
-                src={profileImage}
-                alt="Gabriel Rabelo"
-                className="rounded-full object-cover w-full h-full border-4 border-blue-400/80 relative z-[10] shadow-[0_0_30px_rgba(59,130,246,0.6)]"
-              />
-              <div className="absolute inset-0 rounded-full border-2 border-purple-400/50 z-[20] animate-ping [animation-duration:3s]" />
+
+      <div className="relative min-h-screen flex flex-col items-center px-4 py-16" style={{ zIndex: 10 }}>
+        <main className="w-full max-w-md mx-auto">
+
+          {/* ── Header ───────────────────────────────── */}
+          <div className="text-center mb-10">
+
+            {/* Avatar */}
+            <div className="animate-reveal-up delay-100">
+              <Avatar />
             </div>
-            <h1 className="text-3xl font-bold mb-3 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-200 bg-clip-text text-transparent relative z-10">
-              Gabriel Rabelo
-            </h1>
-            <div className="flex items-center justify-center gap-2 mb-4 relative z-10">
-              <Rocket className="h-5 w-5 text-purple-400 relative z-10" />
-              <h2 className="text-xl font-semibold text-blue-100 relative z-10">
+
+            {/* Name */}
+            <div className="animate-reveal-up delay-200">
+              <h1
+                className="text-gradient-accent text-4xl font-extrabold tracking-tight mb-2"
+                style={{ letterSpacing: '-0.03em' }}
+              >
+                Gabriel Rabelo
+              </h1>
+            </div>
+
+            {/* Tagline */}
+            <div className="animate-reveal-up delay-300">
+              <p
+                className="text-gradient-white text-xl font-semibold mb-3"
+              >
                 Arquitetura de Liberdade Digital
-              </h2>
+              </p>
             </div>
-            <p className="text-lg font-medium mb-2 text-blue-200 relative z-10">
-              Como usar IA para ter mais tempo, dinheiro e autonomia
-            </p>
-            {/* <p className="text-blue-200/90 leading-relaxed relative z-10">
-              • Dev que trocou escritórios por praias<br/>
-              • Founder do ZenFlow<br/>
-              • Builder público<br/>
-              • Pai
-            </p> */}
-            <div className="mt-4 flex items-center justify-center gap-2 text-sm text-purple-300 relative z-10">
-              <TrendingUp className="h-4 w-4 relative z-10" />
-              <span className="relative z-10">Dev Sênior compartilhando conhecimento</span>
+
+            {/* Description */}
+            <div className="animate-reveal-up delay-400">
+              <p style={{ color: '#94A3B8', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                Como usar IA para ter mais tempo, dinheiro e autonomia
+              </p>
+            </div>
+
+            {/* Badge */}
+            <div className="animate-reveal-up delay-500 mt-4 flex justify-center">
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium"
+                style={{
+                  background: 'rgba(99,102,241,0.1)',
+                  border: '1px solid rgba(99,102,241,0.25)',
+                  color: '#A5B4FC',
+                  fontFamily: "'JetBrains Mono', monospace",
+                }}
+              >
+                <span
+                  className="inline-block h-1.5 w-1.5 rounded-full animate-pulse-glow"
+                  style={{ background: '#10B981' }}
+                />
+                Dev Sênior · Builder Público
+              </span>
             </div>
           </div>
 
-          <div className="space-y-4 relative z-10">
+          {/* ── Links ────────────────────────────────── */}
+          <div className="space-y-3">
             {links.map((link, index) => (
-              <SocialButton key={index} {...link} />
+              <div
+                key={link.href}
+                className="animate-reveal-up"
+                style={{ animationDelay: `${600 + index * 100}ms` }}
+              >
+                <SocialButton {...link} />
+              </div>
             ))}
           </div>
+
         </main>
 
         <Footer />
